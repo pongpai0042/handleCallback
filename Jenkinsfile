@@ -1,11 +1,18 @@
 pipeline {
-  agent none
+  agent {
+    docker {
+      image 'node:10-alpine'
+    }
+
+  }
   stages {
     stage('test') {
       steps {
-        echo 'hello test'
-        sleep(unit: 'SECONDS', time: 2)
+        sh 'node --version'
       }
     }
+  }
+  environment {
+    ONLY_IOS = 'false'
   }
 }
