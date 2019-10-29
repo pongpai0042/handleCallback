@@ -1,12 +1,13 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('test') {
+    stage('test stage') {
       parallel {
         stage('test') {
           agent {
             docker {
               image 'node:10-alpine'
+              args '-p 3000:3001'
             }
 
           }
