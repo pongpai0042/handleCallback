@@ -28,5 +28,10 @@ pipeline {
         }
       }
     }
+    stage('print output') {
+      steps {
+        echo 'done'
+      }
+    }
   }
 }
