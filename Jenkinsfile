@@ -11,7 +11,12 @@ pipeline {
 
           }
           steps {
-            sh 'node --version'
+            sh '''node --version
+'''
+            timeout(time: 1, unit: 'MINUTES') {
+              sh 'ls'
+            }
+
           }
         }
         stage('echo') {
