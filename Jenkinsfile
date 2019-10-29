@@ -1,37 +1,28 @@
 pipeline {
-  agent any
-  stages {
-    stage('test stage') {
-      parallel {
-        stage('test') {
-          agent {
-            docker {
-              image 'node:10-alpine'
-              args '-p 3000:3001'
+    agent any
+    stages {
+        stage('No-op') {
+            steps {
+                sh 'ls'
             }
-
-          }
-          steps {
-            sh '''node --version
-'''
-            timeout(time: 1, unit: 'MINUTES') {
-              sh 'ls'
-            }
-
-          }
         }
-        stage('echo') {
-          steps {
-            sleep 1
-            echo 'testt'
-          }
+    }
+    post {
+        always {
+            echo 'One way or another, I have finished'
+            deleteDir() /* clean up our workspace */
         }
-      }
+        success {
+            echo 'I succeeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+        changed {
+            echo 'Things were different before...'
+        }
     }
-    stage('print output') {
-      steps {
-        echo 'done'
-      }
-    }
-  }
 }
