@@ -1,0 +1,10 @@
+kind: pipeline
+name: default
+
+steps:
+  # Run tests against React client app (with Jest)
+  - name: client_test
+    image: node:11.6.0-alpine
+    commands:
+      # Install dependencies (which will be cached)
+      - yarn
