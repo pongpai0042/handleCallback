@@ -7,4 +7,4 @@ steps:
     image: node:11.6.0-alpine
     commands:
       # Install dependencies (which will be cached)
-      - yarn
+      - npm install
