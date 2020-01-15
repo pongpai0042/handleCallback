@@ -9,3 +9,10 @@ steps:
       # Install dependencies (which will be cached)
       - node -v
       - npm install
+      
+  - name: wait_test
+    image: node:11.6.0-alpine
+    commands:
+      # Install dependencies (which will be cached)
+      - sleep 10
+      - node -v
