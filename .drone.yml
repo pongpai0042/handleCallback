@@ -14,5 +14,5 @@ steps:
     image: node:11.6.0-alpine
     commands:
       # Install dependencies (which will be cached)
-      - sleep 10
+      - sleep 31
       - node -v
