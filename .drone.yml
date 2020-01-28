@@ -11,8 +11,8 @@ steps:
       - npm install
       
   - name: wait_test
-    image: node:11.6.0-alpine
+    image: golang
     commands:
       # Install dependencies (which will be cached)
-      - sleep 62
-      - node -v
+      - pwd
+      - go version
