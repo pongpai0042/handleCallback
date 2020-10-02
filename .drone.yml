@@ -15,4 +15,5 @@ steps:
     commands:
       # Install dependencies (which will be cached)
       - pwd
+      - sleep 3
       - go version
